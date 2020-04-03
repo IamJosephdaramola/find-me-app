@@ -9,9 +9,8 @@ export default function NavBar() {
 					🤔
 				</span>
 				<p className='small'>
-					Click on
-					<strong className='text-yellow'>the icon below</strong> to get your
-					location
+					Click on the
+					<strong className='text-yellow'> icon below</strong> to get your location
 				</p>
 			</div>
 		</nav>
