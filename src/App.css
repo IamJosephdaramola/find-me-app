@@ -1,0 +1,44 @@
+:root {
+	--mainBlue: #335977;
+	--mainDark: #101214;
+	--mainYellow: #ffa400;
+	--bodyFont: 'Oswald', sans-serif;
+	--titleFont: 'Permanent Marker', cursive;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+*:focus {
+	outline: none;
+}
+
+body {
+	font-family: var(--bodyFont);
+	overflow-x: hidden;
+}
+
+.map {
+	width: 100vw;
+	height: 100vh;
+}
+
+.loading-element,
+.container-element,
+.map-element {
+	height: 100%;
+}
+
+.navbar {
+	background: linear-gradient(100deg, var(--mainDark), var(--mainBlue));
+}
+
+.title {
+	font-family: var(--titleFont);
+}
+
+.emoji {
+	color: var(--mainYellow) !important;
+	font-size: 1.7rem;
+}
