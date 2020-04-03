@@ -51,13 +51,15 @@ const State = props => {
 	const handleError = error => {
 		switch (error.code) {
 			case error.PERMISSION_DENIED:
-				alert('User denied the request for Geolocation.');
+				alert(
+					'Please grant access to your location, refresh your browser and try again.'
+				);
 				break;
 			case error.POSITION_UNAVAILABLE:
 				alert('Location information is unavailable.');
 				break;
 			case error.TIMEOUT:
-				alert('The request to get user location timed out.');
+				alert("The request to get user's location timed out.");
 				break;
 			case error.UNKNOWN_ERROR:
 				alert('An unknown error occurred.');

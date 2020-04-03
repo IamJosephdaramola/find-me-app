@@ -36,10 +36,6 @@ const Map = () => {
 						setLongitude(longitude);
 						setModal(true);
 					}}
-					icon={{
-						url: '/skateboarding.svg',
-						scaledSize: new window.google.maps.Size(50, 50)
-					}}
 				/>
 
 				{modal && (
