@@ -34,6 +34,10 @@ body {
 	background: linear-gradient(100deg, var(--mainDark), var(--mainBlue));
 }
 
+.text-yellow {
+	color: var(--mainYellow);
+}
+
 .title {
 	font-family: var(--titleFont);
 }

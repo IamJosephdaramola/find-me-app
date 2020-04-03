@@ -8,7 +8,11 @@ export default function NavBar() {
 				<span role='img' aria-label='emoji' className='emoji font-weight-bold'>
 					🤔
 				</span>
-				<p className='small'>Click on the icon below to get your location</p>
+				<p className='small'>
+					Click on
+					<strong className='text-yellow'>the icon below</strong> to get your
+					location
+				</p>
 			</div>
 		</nav>
 	);
