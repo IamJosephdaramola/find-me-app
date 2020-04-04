@@ -35,6 +35,7 @@ const Map = () => {
 						lng,
 					}}
 					onClick={() => {
+						getLocation();
 						getUserAddress();
 						setLatitude(latitude);
 						setLongitude(longitude);
