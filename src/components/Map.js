@@ -26,7 +26,7 @@ const Map = () => {
 	return (
 		<Fragment>
 			<GoogleMap
-				defaultZoom={10}
+				defaultZoom={11}
 				defaultCenter={{ lat: lat, lng: lng }}
 				defaultOptions={{ styles: mapStyles }}>
 				<Marker
@@ -35,6 +35,7 @@ const Map = () => {
 						lng,
 					}}
 					onClick={() => {
+						getUserAddress();
 						setLatitude(latitude);
 						setLongitude(longitude);
 						setInfo(address);
@@ -53,10 +54,10 @@ const Map = () => {
 						}}>
 						<div>
 							<h5>
-								{info !== 'San Francisco, US' ||
-								info !== '1260 6th Ave, San Francisco, CA 94122, USA'
-									? info
-									: "user's address is currently unavailable. Please reload"}
+								{info === 'San Francisco, US' ||
+								info === '1260 6th Ave, San Francisco, CA 94122, USA'
+									? "user's address is currently unavailable."
+									: info}
 							</h5>
 						</div>
 					</InfoWindow>

@@ -23,7 +23,7 @@ const State = (props) => {
 		} catch (err) {
 			dispatch({
 				type: ERROR,
-				payload: err.response.msg,
+				payload: err.msg,
 			});
 		}
 	};
@@ -35,7 +35,6 @@ const State = (props) => {
 
 			const response = await fetch(proxyUrl + url);
 			const data = await response.json();
-			console.log(data);
 
 			dispatch({
 				type: GET_ADDRESS,
@@ -44,7 +43,7 @@ const State = (props) => {
 		} catch (err) {
 			dispatch({
 				type: ERROR,
-				payload: err,
+				payload: err.Object.error_message,
 			});
 		}
 	};
