@@ -18,7 +18,6 @@ const Map = () => {
 		return () => {
 			setLatitude(latitude);
 			setLongitude(longitude);
-			setInfo(address);
 		};
 		// eslint-disable-next-line
 	}, [latitude, longitude]);
@@ -54,7 +53,7 @@ const Map = () => {
 							setModal(false);
 						}}>
 						<div>
-							<h4>{info}</h4>
+							<h4>{info ? info : "user's address is unavailable"}</h4>
 						</div>
 					</InfoWindow>
 				)}
