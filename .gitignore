@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-/src/sampleFiles
+/src/data/data
 
 # production
 /build
