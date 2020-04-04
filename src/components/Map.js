@@ -5,17 +5,20 @@ import Context from '../context/context';
 
 const Map = () => {
 	const context = useContext(Context);
-	const { latitude, longitude, getLocation } = context;
+	const { latitude, address, getUserAddress, longitude, getLocation } = context;
 
 	const [lng, setLongitude] = useState(-122.463);
 	const [lat, setLatitude] = useState(37.7648);
+	const [info, setInfo] = useState('San Francisco, US');
 	const [modal, setModal] = useState(false);
 
 	useEffect(() => {
 		getLocation();
+		getUserAddress();
 		return () => {
 			setLatitude(latitude);
 			setLongitude(longitude);
+			setInfo(address);
 		};
 		// eslint-disable-next-line
 	}, [latitude, longitude]);
@@ -29,11 +32,14 @@ const Map = () => {
 				<Marker
 					position={{
 						lat,
-						lng
+						lng,
 					}}
 					onClick={() => {
 						setLatitude(latitude);
 						setLongitude(longitude);
+						setInfo(address);
+						console.log(info);
+
 						setModal(true);
 					}}
 				/>
@@ -42,13 +48,13 @@ const Map = () => {
 					<InfoWindow
 						position={{
 							lat,
-							lng
+							lng,
 						}}
 						onCloseClick={() => {
 							setModal(false);
 						}}>
 						<div>
-							<h4>This should display the user's address</h4>
+							<h4>{info}</h4>
 						</div>
 					</InfoWindow>
 				)}

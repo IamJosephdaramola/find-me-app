@@ -1,54 +1,55 @@
 import React, { useReducer } from 'react';
 import Context from './context';
 import Reducer from './reducer';
-import { GET_LOCATION, ERROR } from './types';
+import { GET_LOCATION, ERROR, GET_ADDRESS } from './types';
 
-const State = props => {
+const State = (props) => {
 	const initialState = {
 		latitude: 37.7648,
 		longitude: -122.463,
-		error: null
+		Address: 'San Francisco, US',
+		error: null,
 	};
 	const [state, dispatch] = useReducer(Reducer, initialState);
 
 	const getLocation = () => {
 		try {
-			navigator.geolocation.getCurrentPosition(position => {
+			navigator.geolocation.getCurrentPosition((position) => {
 				dispatch({
 					type: GET_LOCATION,
-					payload: position.coords
+					payload: position.coords,
 				});
 			}, handleError);
 		} catch (err) {
 			dispatch({
 				type: ERROR,
-				payload: err.response.msg
+				payload: err.response.msg,
 			});
 		}
 	};
 
-	// const getUserAddress = async () => {
-	// 	try {
-	// 		const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-	// 		const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${state.latitude},${state.longitude}&sensor=false&key=${process.env.REACT_APP_GOOGLE_API}`;
+	const getUserAddress = async () => {
+		try {
+			const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+			const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${state.latitude},${state.longitude}&sensor=false&key=${process.env.REACT_APP_GOOGLE_API}`;
 
-	// 		const response = await fetch(proxyUrl + url);
-	// 		const data = await response.json();
-	// 		console.log(data);
+			const response = await fetch(proxyUrl + url);
+			const data = await response.json();
+			console.log(data);
 
-	// 		dispatch({
-	// 			type: GET_ADDRESS,
-	// 			payload: data
-	// 		});
-	// 	} catch (err) {
-	// 		dispatch({
-	// 			type: ERROR,
-	// 			payload: err
-	// 		});
-	// 	}
-	// };
+			dispatch({
+				type: GET_ADDRESS,
+				payload: data,
+			});
+		} catch (err) {
+			dispatch({
+				type: ERROR,
+				payload: err,
+			});
+		}
+	};
 
-	const handleError = error => {
+	const handleError = (error) => {
 		switch (error.code) {
 			case error.PERMISSION_DENIED:
 				alert(
@@ -76,7 +77,8 @@ const State = props => {
 				latitude: state.latitude,
 				address: state.address,
 				error: state.error,
-				getLocation
+				getLocation,
+				getUserAddress,
 			}}>
 			{props.children}
 		</Context.Provider>
