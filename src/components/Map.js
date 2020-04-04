@@ -19,7 +19,6 @@ const Map = () => {
 			setLatitude(latitude);
 			setLongitude(longitude);
 			setInfo(address);
-			console.log(address);
 		};
 		// eslint-disable-next-line
 	}, [latitude, longitude]);
@@ -53,9 +52,12 @@ const Map = () => {
 							setModal(false);
 						}}>
 						<div>
-							<h4>
-								{info !== 'San Francisco, US' ? info : "user's address is unavailable"}
-							</h4>
+							<h5>
+								{info !== 'San Francisco, US' ||
+								info !== '1260 6th Ave, San Francisco, CA 94122, USA'
+									? info
+									: "user's address is currently unavailable. Please reload"}
+							</h5>
 						</div>
 					</InfoWindow>
 				)}
