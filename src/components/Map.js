@@ -18,6 +18,8 @@ const Map = () => {
 		return () => {
 			setLatitude(latitude);
 			setLongitude(longitude);
+			setInfo(address);
+			console.log(address);
 		};
 		// eslint-disable-next-line
 	}, [latitude, longitude]);
@@ -37,8 +39,6 @@ const Map = () => {
 						setLatitude(latitude);
 						setLongitude(longitude);
 						setInfo(address);
-						console.log(info);
-
 						setModal(true);
 					}}
 				/>
@@ -53,7 +53,9 @@ const Map = () => {
 							setModal(false);
 						}}>
 						<div>
-							<h4>{info ? info : "user's address is unavailable"}</h4>
+							<h4>
+								{info !== 'San Francisco, US' ? info : "user's address is unavailable"}
+							</h4>
 						</div>
 					</InfoWindow>
 				)}

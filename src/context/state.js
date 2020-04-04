@@ -7,7 +7,7 @@ const State = (props) => {
 	const initialState = {
 		latitude: 37.7648,
 		longitude: -122.463,
-		Address: 'San Francisco, US',
+		address: 'San Francisco, US',
 		error: null,
 	};
 	const [state, dispatch] = useReducer(Reducer, initialState);
