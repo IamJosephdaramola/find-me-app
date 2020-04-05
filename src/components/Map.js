@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect, Fragment } from 'react';
 import { GoogleMap, Marker, InfoWindow } from 'react-google-maps';
+// import { FaMapMarker } from 'react-icons/fa';s
 import mapStyles from '../data/mapStyles';
 import Context from '../context/context';
 
@@ -35,11 +36,6 @@ const Map = () => {
 						lng,
 					}}
 					onClick={() => {
-						getLocation();
-						getUserAddress();
-						setLatitude(latitude);
-						setLongitude(longitude);
-						setInfo(address);
 						setModal(true);
 					}}
 					icon={{
@@ -68,6 +64,20 @@ const Map = () => {
 					</InfoWindow>
 				)}
 			</GoogleMap>
+			<button
+				className='find-me-btn btn btn-warning'
+				type='button'
+				onClick={() => {
+					getLocation();
+					getUserAddress();
+					setLatitude(latitude);
+					setLongitude(longitude);
+					setInfo(address);
+					setModal(true);
+					console.log(latitude, longitude);
+				}}>
+				Find Me
+			</button>
 		</Fragment>
 	);
 };

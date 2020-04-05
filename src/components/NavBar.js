@@ -10,7 +10,7 @@ export default function NavBar() {
 				</span>
 				<p className='small'>
 					Click on the
-					<strong className='text-yellow'> icon below</strong> to get your location
+					<strong className='text-yellow'> button below</strong> to get your location
 				</p>
 			</div>
 		</nav>

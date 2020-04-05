@@ -22,12 +22,25 @@ body {
 .map {
 	width: 100vw;
 	height: 100vh;
+	position: relative;
 }
 
 .loading-element,
 .container-element,
 .map-element {
 	height: 100%;
+}
+
+.find-me-btn {
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	bottom: 5%;
+	transform: translateX(-50%);
+}
+
+.btn-warning {
+	background-color: var(--mainYellow) !important;
 }
 
 .navbar {

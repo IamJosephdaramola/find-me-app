@@ -43,7 +43,7 @@ const State = (props) => {
 		} catch (err) {
 			dispatch({
 				type: ERROR,
-				payload: err.Object.error_message,
+				payload: err.msg
 			});
 		}
 	};
